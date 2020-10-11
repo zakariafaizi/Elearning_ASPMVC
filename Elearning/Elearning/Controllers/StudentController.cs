@@ -197,6 +197,42 @@ namespace Elearning.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult changement(login log , FormCollection form3)
+        {
+            username = log.username.ToString();
+            password = log.password.ToString();
+
+            db = new eLearningDataContext();
+
+            var upd = from Etudiant in db.Etudiants
+                      where Etudiant.Username.Equals(Session["username"].ToString()) &&
+                      Etudiant.Password.Equals(Session["password"].ToString())
+                      select Etudiant;
+                      
+
+            foreach(var res in upd)
+            {
+                res.Username = username;
+                res.Password = password;
+                res.changedpw = 1;
+            }
+
+            try
+            {
+                db.SubmitChanges();
+
+                Session["username"] = username;
+                Session["password"] = password;
+                Session["changed"] = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return Home();
+        }
 
 
         [HttpPost]
