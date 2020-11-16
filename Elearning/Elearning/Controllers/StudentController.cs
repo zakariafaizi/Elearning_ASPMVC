@@ -30,17 +30,27 @@ namespace Elearning.Controllers
 
         private eLearningDataContext db;
 
+<<<<<<< HEAD
 
        
     
+=======
+    
+
+
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
         public ActionResult Home()
         {
 
             if(Session["username"] != null && (bool)Session["changed"] == true)
             {
 
+<<<<<<< HEAD
                 return list();
                
+=======
+                return View("Home");
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
             }
             else if(Session["username"] != null && (bool)Session["changed"] == false)
             {
@@ -236,7 +246,10 @@ namespace Elearning.Controllers
         }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
         [HttpPost]
         public ActionResult loginin(login log, FormCollection form)
         {
@@ -253,19 +266,31 @@ namespace Elearning.Controllers
                       {
                           Etudiant.Username,
                           Etudiant.Password,
+<<<<<<< HEAD
                           Etudiant.changedpw,
                           Etudiant.Niveau
                       };
 
+=======
+                          Etudiant.changedpw
+
+                      };
+            
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
             string msg;
 
             foreach (var res2 in res)
             {
+<<<<<<< HEAD
                 if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 1)
+=======
+               if(username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 1)
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
                 {
 
                     Session["username"] = username;
                     Session["password"] = password;
+<<<<<<< HEAD
                     Session["niveau"] = res2.Niveau;
                     Session["changed"] = true;
 
@@ -274,12 +299,23 @@ namespace Elearning.Controllers
 
                 }
                 else if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 0)
+=======
+                    Session["changed"] = true;
+                   
+
+                }
+               else if(username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 0)
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
                 {
 
                     Session["username"] = username;
                     Session["password"] = password;
+<<<<<<< HEAD
                     Session["niveau"] = res2.Niveau;
                     Session["changed"] = false;
+=======
+                    Session["changed"]  = false;
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 
                 }
                 else
@@ -288,12 +324,17 @@ namespace Elearning.Controllers
                     msg = "<script>alert('user does not exist ! Sign in ');</script>";
 
                     return View("Index");
+<<<<<<< HEAD
 
+=======
+                   
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 
                 }
 
             }
 
+<<<<<<< HEAD
             if (res.Count() < 1)
             {
                 msg = "<script>alert('user does not exist ! Sign in ');</script>";
@@ -321,16 +362,29 @@ namespace Elearning.Controllers
             {
                 return View("Index");
             }
+=======
+            if(res.Count() < 1)
+            {
+                msg = "<script>alert('user does not exist ! Sign in ');</script>";
+
+                    return View("Index");
+            }
+
+            return Home();
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 
 
         }
 
+<<<<<<< HEAD
         public ActionResult Details(int id)
         {
             db = new eLearningDataContext();
 
             return View(db.Cours.Where(s => s.idCours == id).ToList());
         }
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 
 
 

@@ -125,7 +125,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\TeacherController.cs" />
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
     <Compile Include="eLearning.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,11 +158,14 @@
     <Content Include="Views\Student\Login.cshtml" />
     <Content Include="Views\Student\Change.cshtml" />
     <Content Include="Views\Student\Home.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Student\list.cshtml" />
     <Content Include="Views\Teacher\Login.cshtml" />
     <Content Include="Views\Teacher\list.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Teacher\Create.cshtml" />
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -33,6 +33,7 @@ namespace Elearning
     partial void InsertEtudiant(Etudiant instance);
     partial void UpdateEtudiant(Etudiant instance);
     partial void DeleteEtudiant(Etudiant instance);
+<<<<<<< HEAD
     partial void InsertCour(Cour instance);
     partial void UpdateCour(Cour instance);
     partial void DeleteCour(Cour instance);
@@ -42,6 +43,8 @@ namespace Elearning
     partial void InsertInscriCour(InscriCour instance);
     partial void UpdateInscriCour(InscriCour instance);
     partial void DeleteInscriCour(InscriCour instance);
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
     #endregion
 		
 		public eLearningDataContext() : 
@@ -89,6 +92,7 @@ namespace Elearning
 				return this.GetTable<Niveau>();
 			}
 		}
+<<<<<<< HEAD
 		
 		public System.Data.Linq.Table<Cour> Cours
 		{
@@ -113,6 +117,8 @@ namespace Elearning
 				return this.GetTable<InscriCour>();
 			}
 		}
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant")]
@@ -139,8 +145,11 @@ namespace Elearning
 		
 		private int _changedpw;
 		
+<<<<<<< HEAD
 		private EntitySet<InscriCour> _InscriCours;
 		
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -167,7 +176,10 @@ namespace Elearning
 		
 		public Etudiant()
 		{
+<<<<<<< HEAD
 			this._InscriCours = new EntitySet<InscriCour>(new Action<InscriCour>(this.attach_InscriCours), new Action<InscriCour>(this.detach_InscriCours));
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 			OnCreated();
 		}
 		
@@ -351,6 +363,7 @@ namespace Elearning
 			}
 		}
 		
+<<<<<<< HEAD
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_InscriCour", Storage="_InscriCours", ThisKey="idEtudiant", OtherKey="idEtudiant")]
 		public EntitySet<InscriCour> InscriCours
 		{
@@ -364,6 +377,8 @@ namespace Elearning
 			}
 		}
 		
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -383,6 +398,7 @@ namespace Elearning
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+<<<<<<< HEAD
 		
 		private void attach_InscriCours(InscriCour entity)
 		{
@@ -395,6 +411,8 @@ namespace Elearning
 			this.SendPropertyChanging();
 			entity.Etudiant = null;
 		}
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Niveau")]
@@ -441,6 +459,7 @@ namespace Elearning
 			}
 		}
 	}
+<<<<<<< HEAD
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cours")]
 	public partial class Cour : INotifyPropertyChanging, INotifyPropertyChanged
@@ -1259,5 +1278,7 @@ namespace Elearning
 			}
 		}
 	}
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 }
 #pragma warning restore 1591

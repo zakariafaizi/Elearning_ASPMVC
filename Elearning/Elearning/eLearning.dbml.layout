@@ -8,6 +8,7 @@
         <elementListCompartment Id="e70a95c8-f16f-4e42-a7c5-e1f578683110" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+<<<<<<< HEAD
     <classShape Id="9bab89c6-905f-4646-ae1a-d3bc5ff5b6cc" absoluteBounds="3.25, 0.5, 2, 1.1939925130208335">
       <DataClassMoniker Name="/eLearningDataContext/Niveau" />
       <nestedChildShapes>
@@ -60,5 +61,13 @@
         <classShapeMoniker Id="ede96c4c-1d85-4626-a5ce-f3b1ed2b13eb" />
       </nodes>
     </associationConnector>
+=======
+    <classShape Id="9bab89c6-905f-4646-ae1a-d3bc5ff5b6cc" absoluteBounds="3.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/eLearningDataContext/Niveau" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d85b74e-d1f3-4ea6-853b-a6cc08660b02" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

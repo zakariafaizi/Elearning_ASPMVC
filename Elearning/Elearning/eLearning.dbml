@@ -11,7 +11,10 @@
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="changedpw" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+<<<<<<< HEAD
       <Association Name="Etudiant_InscriCour" Member="InscriCours" ThisKey="idEtudiant" OtherKey="idEtudiant" Type="InscriCour" />
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
     </Type>
   </Table>
   <Table Name="dbo.Niveau" Member="Niveaus">
@@ -20,6 +23,7 @@
       <Column Name="niveau" Member="niveau1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+<<<<<<< HEAD
   <Table Name="dbo.Cours" Member="Cours">
     <Type Name="Cour">
       <Column Name="idCours" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -58,4 +62,6 @@
       <Association Name="Etudiant_InscriCour" Member="Etudiant" ThisKey="idEtudiant" OtherKey="idEtudiant" Type="Etudiant" IsForeignKey="true" />
     </Type>
   </Table>
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
 </Database>
