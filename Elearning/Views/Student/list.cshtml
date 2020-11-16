@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Elearning.Cour>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>list</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+          
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+           
+            <td>
+             
+                @Html.ActionLink("Details", "Details", new { id=item.idCours }) 
+         
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
