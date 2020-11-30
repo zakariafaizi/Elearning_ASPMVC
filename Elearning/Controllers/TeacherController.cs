@@ -135,6 +135,46 @@ namespace Elearning.Controllers
             return View();
         }
 
+        public ActionResult Delete(int id)
+        {
+            db = new eLearningDataContext();
+
+            var DeleteID = from d in db.Cours
+                           where d.idCours == id
+                           select d;
+
+            db.Cours.DeleteAllOnSubmit(DeleteID);
+            db.SubmitChanges();
+
+
+            return RedirectToAction("list", "Teacher");
+        }
+
+
+
+        public ActionResult Edit(int id)
+        {
+            db = new eLearningDataContext();
+
+            var cours = db.Cours.Where(c => c.idCours == id).FirstOrDefault();
+            return View(cours);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Cour cr)
+        {
+            db = new eLearningDataContext();
+            var cours = db.Cours.Where(s => s.idCours == cr.idCours).FirstOrDefault();
+            db.Cours.DeleteOnSubmit(cours);
+            db.SubmitChanges();
+            db.Cours.InsertOnSubmit(cr);
+            db.SubmitChanges();
+
+            return RedirectToAction("list", "Teacher");
+        }
+
+
         [HttpPost]
         public ActionResult insert(Cour c ,FormCollection form)
         {

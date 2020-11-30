@@ -45,36 +45,37 @@
         </tr>
     
     @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Laboratoire)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exercice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quiz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Video)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Niveau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NotesDeCours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.idEnseignant)
-            </td>
-            <td>
-  |
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Laboratoire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exercice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quiz)
+        </td>
+        <td>
+            <a href="@item.Video">Vidéo</a>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Niveau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotesDeCours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idEnseignant)
+        </td>
+        <td>
+            |
             <hr />
-            </td>
-        </tr>
+        </td>
+    </tr>
     }
     
     </table>
