@@ -70,3 +70,7 @@ C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\obj
 C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\obj\Debug\Elearning.csproj.CopyComplete
 C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\obj\Debug\Elearning.dll
 C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\obj\Debug\Elearning.pdb
+C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\bin\EntityFramework.dll
+C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\bin\EntityFramework.SqlServer.dll
+C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\bin\EntityFramework.xml
+C:\Users\Zakaria\Documents\DECSession4\Fernand_AT\Projet\Elearning\Elearning\bin\EntityFramework.SqlServer.xml

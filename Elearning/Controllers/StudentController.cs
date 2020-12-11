@@ -15,7 +15,7 @@ namespace Elearning.Controllers
 {
     public class StudentController : Controller
     {
-  
+
         string nom;
         string prenom;
         string age;
@@ -30,13 +30,20 @@ namespace Elearning.Controllers
 
         private eLearningDataContext db;
 
-
+         
        
     
         public ActionResult Home()
         {
+            using (ElearningContext db2 = new ElearningContext())
+            {
+                db2.Enseignants.Count();
+                db2.Cours.Count();
+              
+                db2.Etudiants.Count();
+            }
 
-            if(Session["username"] != null && (bool)Session["changed"] == true)
+            if (Session["username"] != null && (bool)Session["changed"] == true)
             {
 
                 return list();
@@ -307,7 +314,7 @@ namespace Elearning.Controllers
 
         }
 
-
+        
         public ActionResult list()
         {
             db = new eLearningDataContext();
@@ -332,6 +339,7 @@ namespace Elearning.Controllers
             return View(db.Cours.Where(s => s.idCours == id).ToList());
         }
 
+    
 
 
     }

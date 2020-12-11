@@ -12,9 +12,7 @@
     <title>Details</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+   
     <table class="table">
         <tr>
             <th>
@@ -72,8 +70,7 @@
             @Html.DisplayFor(modelItem => item.idEnseignant)
         </td>
         <td>
-            |
-            <hr />
+            @Html.ActionLink("S'inscrire", "InscriptionCours", new { id = item.idCours })
         </td>
     </tr>
     }
