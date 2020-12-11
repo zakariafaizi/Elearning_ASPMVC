@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="eLearningDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Etudiant" Member="Etudiants">
+    <Type Name="Etudiant">
+      <Column Name="idEtudiant" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Niveau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="changedpw" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+<<<<<<< HEAD
+      <Association Name="Etudiant_InscriCour" Member="InscriCours" ThisKey="idEtudiant" OtherKey="idEtudiant" Type="InscriCour" />
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
+    </Type>
+  </Table>
+  <Table Name="dbo.Niveau" Member="Niveaus">
+    <Type Name="Niveau">
+      <Column Name="idNiveau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="niveau" Member="niveau1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+<<<<<<< HEAD
+  <Table Name="dbo.Cours" Member="Cours">
+    <Type Name="Cour">
+      <Column Name="idCours" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Laboratoire" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Exercice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Quiz" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Niveau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotesDeCours" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idEnseignant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Cour_Enseignant" Member="Enseignants" ThisKey="idCours" OtherKey="idCours" Type="Enseignant" />
+      <Association Name="Cour_InscriCour" Member="InscriCours" ThisKey="idCours" OtherKey="idCours" Type="InscriCour" />
+      <Association Name="Enseignant_Cour" Member="Enseignant" ThisKey="idEnseignant" OtherKey="idEnseignant" Type="Enseignant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Enseignant" Member="Enseignants">
+    <Type Name="Enseignant">
+      <Column Name="idEnseignant" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idCours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Enseignant_Cour" Member="Cours" ThisKey="idEnseignant" OtherKey="idEnseignant" Type="Cour" />
+      <Association Name="Cour_Enseignant" Member="Cour" ThisKey="idCours" OtherKey="idCours" Type="Cour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InscriCours" Member="InscriCours">
+    <Type Name="InscriCour">
+      <Column Name="idInscription" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEtudiant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Cour_InscriCour" Member="Cour" ThisKey="idCours" OtherKey="idCours" Type="Cour" IsForeignKey="true" />
+      <Association Name="Etudiant_InscriCour" Member="Etudiant" ThisKey="idEtudiant" OtherKey="idEtudiant" Type="Etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+=======
+>>>>>>> 204a52b91dd4b7d0501dcca64d6586974aea8d3a
+</Database>
