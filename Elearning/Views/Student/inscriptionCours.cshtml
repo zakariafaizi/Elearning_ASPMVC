@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Elearning.Models.Cour>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>inscriptionCours</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enseignant.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Laboratoire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exercice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quiz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Video)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Niveau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotesDeCours)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enseignant.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Laboratoire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quiz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Video)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Niveau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotesDeCours)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idCours }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idCours }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idCours })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

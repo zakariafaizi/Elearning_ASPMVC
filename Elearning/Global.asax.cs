@@ -13,7 +13,7 @@ namespace Elearning
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<ElearningContext>(new DropCreateDatabaseIfModelChanges<ElearningContext>());
+     
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

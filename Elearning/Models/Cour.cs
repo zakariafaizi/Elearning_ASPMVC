@@ -11,6 +11,7 @@ namespace Elearning.Models
     {
 
         [Key]
+       
         public int idCours { get; set; }
         public string Nom { get; set; }
         public string Laboratoire { get; set; }
@@ -21,7 +22,7 @@ namespace Elearning.Models
         public string NotesDeCours { get; set; }
 
         public int idEnseignant { get; set; }
-        public Enseignant Enseignant { get; set; }
+        public virtual Enseignant Enseignant { get; set; }
 
         public virtual List<Etudiant> Etudiants { get; set; }
     }

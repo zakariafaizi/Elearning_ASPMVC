@@ -35,13 +35,7 @@ namespace Elearning.Controllers
     
         public ActionResult Home()
         {
-            using (ElearningContext db2 = new ElearningContext())
-            {
-                db2.Enseignants.Count();
-                db2.Cours.Count();
-              
-                db2.Etudiants.Count();
-            }
+           
 
             if (Session["username"] != null && (bool)Session["changed"] == true)
             {
@@ -252,64 +246,79 @@ namespace Elearning.Controllers
 
             db = new eLearningDataContext();
 
-
-
-            var res = from Etudiant in db.Etudiants
-                      where Etudiant.Username.Equals(username) && Etudiant.Password.Equals(password)
-                      select new
-                      {
-                          Etudiant.Username,
-                          Etudiant.Password,
-                          Etudiant.changedpw,
-                          Etudiant.Niveau
-                      };
-
-            string msg;
-
-            foreach (var res2 in res)
+     
+            using (ElearningContext db2 = new ElearningContext())
             {
-                if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 1)
-                {
+                db2.Etudiants.Add(new Models.Etudiant { Nom = "Faizi", Prenom = "Zakaria", Email = "zak@gmail.com", Username = username, Password = password, changedpw = 1, Age = 20, Niveau = "Collégiale" });
 
-                    Session["username"] = username;
-                    Session["password"] = password;
-                    Session["niveau"] = res2.Niveau;
-                    Session["changed"] = true;
-
-
-
-
-                }
-                else if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 0)
-                {
-
-                    Session["username"] = username;
-                    Session["password"] = password;
-                    Session["niveau"] = res2.Niveau;
-                    Session["changed"] = false;
-
-                }
-                else
-                {
-
-                    msg = "<script>alert('user does not exist ! Sign in ');</script>";
-
-                    return View("Index");
-
-
-                }
-
+                db2.SaveChanges();
             }
 
-            if (res.Count() < 1)
-            {
-                msg = "<script>alert('user does not exist ! Sign in ');</script>";
-
-                return View("Index");
-            }
-
+              Session["username"] = username;
+              Session["password"] = password;
+              Session["niveau"] = "Collégiale";
+              Session["changed"] = true;
 
             return RedirectToAction("list", "Student");
+
+
+
+            //var res = from Etudiant in db.Etudiants
+            //          where Etudiant.Username.Equals(username) && Etudiant.Password.Equals(password)
+            //          select new
+            //          {
+            //              Etudiant.Username,
+            //              Etudiant.Password,
+            //              Etudiant.changedpw,
+            //              Etudiant.Niveau
+            //          };
+
+            //string msg;
+
+            //foreach (var res2 in res)
+            //{
+            //    if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 1)
+            //    {
+
+            //        Session["username"] = username;
+            //        Session["password"] = password;
+            //        Session["niveau"] = res2.Niveau;
+            //        Session["changed"] = true;
+
+
+
+
+            //    }
+            //    else if (username.Equals(res2.Username.ToString()) && password.Equals(res2.Password.ToString()) && res2.changedpw == 0)
+            //    {
+
+            //        Session["username"] = username;
+            //        Session["password"] = password;
+            //        Session["niveau"] = res2.Niveau;
+            //        Session["changed"] = false;
+
+            //    }
+            //    else
+            //    {
+
+            //        msg = "<script>alert('user does not exist ! Sign in ');</script>";
+
+            //        return View("Index");
+
+
+            //    }
+
+            //}
+
+            //if (res.Count() < 1)
+            //{
+            //    msg = "<script>alert('user does not exist ! Sign in ');</script>";
+
+            //    return View("Index");
+            //}
+
+
+            //return RedirectToAction("list", "Student");
 
 
         }
@@ -322,7 +331,19 @@ namespace Elearning.Controllers
 
             if (Session["username"] != null && (bool)Session["changed"] == true)
             {
-                return View(db.Cours.Where( s => s.Niveau == Session["niveau"].ToString() ).ToList());
+                //return View(db.Cours.Where( s => s.Niveau == Session["niveau"].ToString() ).ToList());
+
+                using (ElearningContext db2 = new ElearningContext())
+                {
+                    db2.Enseignants.Add(new Models.Enseignant { Nom = "Faiziis", Prenom = "Zakaria", Email = "zak@gmail.com", Username = "zakaria", Password = "faizi" });
+                    db2.SaveChanges();
+                    db2.Cours.Add(new Models.Cour { Nom = "php19", Laboratoire = "lab19", Exercice = "ex8", Quiz = "qz8", Video = "vd1", Niveau = "Collégiale", NotesDeCours = "nt1", idEnseignant = 1});
+                    db2.SaveChanges();
+                    String niveau = Session["niveau"].ToString();
+                    return View(db2.Cours.Where(s => s.Niveau == niveau).ToList());
+
+                }
+
             }
             else
             {
@@ -334,12 +355,60 @@ namespace Elearning.Controllers
 
         public ActionResult Details(int id)
         {
-            db = new eLearningDataContext();
+            //db = new eLearningDataContext();
 
-            return View(db.Cours.Where(s => s.idCours == id).ToList());
+            //return View(db.Cours.Where(s => s.idCours == id).ToList());
+
+
+            using (ElearningContext db2 = new ElearningContext())
+            {
+               
+                return View(db2.Cours.Where(s => s.idCours == id).ToList());
+
+            }
         }
 
-    
+
+
+        public ActionResult inscriptionCours(int id)
+        {
+            //db = new eLearningDataContext();
+
+            //return View(db.Cours.Where(s => s.idCours == id).ToList());
+
+
+            using (ElearningContext db2 = new ElearningContext())
+            {
+
+                var iduser = db2.Etudiants.Where(u => u.Username == username).Select(d => d.idEtudiant); 
+
+                Models.Etudiant student = new Models.Etudiant {idEtudiant = iduser.FirstOrDefault() };
+                db2.Etudiants.Add(student);
+                db2.Etudiants.Attach(student);
+
+                Models.Cour cour = new Models.Cour { idCours = id };
+                db2.Cours.Add(cour);
+                db2.Cours.Attach(cour);
+
+                student.Cours = new List<Models.Cour>();
+                student.Cours.Add(cour);
+                try {
+                    db2.SaveChanges(); 
+                }
+                catch(System.Data.Entity.Validation.DbEntityValidationException e)
+                {
+                    String err = e.Message; 
+                }
+               
+
+             
+                var idCour = db2.Etudiants.Where(u => u.idEtudiant == iduser.FirstOrDefault()).Select(c => c.Cours.First());
+
+                return View(db2.Cours.Where(c => c.idCours == idCour.FirstOrDefault().idCours).ToList().Single<Models.Cour>());
+             
+
+            }
+        }
 
 
     }

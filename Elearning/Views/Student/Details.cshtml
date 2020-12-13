@@ -1,5 +1,5 @@
-﻿@model IEnumerable<Elearning.Cour>
-
+﻿
+@model List<Elearning.Models.Cour>
 @{
     Layout = null;
 }
@@ -12,69 +12,70 @@
     <title>Details</title>
 </head>
 <body>
-   
+
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nom)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Laboratoire)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exercice)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quiz)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Video)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Niveau)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NotesDeCours)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.idEnseignant)
+                @Html.DisplayNameFor(model => model)
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Laboratoire)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Exercice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quiz)
-        </td>
-        <td>
-            <a href="@item.Video">Vidéo</a>
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Niveau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NotesDeCours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idEnseignant)
-        </td>
-        <td>
-            @Html.ActionLink("S'inscrire", "InscriptionCours", new { id = item.idCours })
-        </td>
-    </tr>
-    }
-    
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Laboratoire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exercice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quiz)
+                </td>
+                <td>
+                    <a href="@item.Video">Vidéo</a>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Niveau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotesDeCours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idEnseignant)
+                </td>
+                <td>
+                    @Html.ActionLink("S'inscrire", "InscriptionCours", new { id = item.idCours })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>
